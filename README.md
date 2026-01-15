@@ -1,16 +1,55 @@
-# React + Vite
+## Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React weather application that fetches current conditions and a 5-day forecast
+by city or location using OpenWeatherMap. Built with a custom `useWeather` hook to separate business
+logic from UI.
 
-Currently, two official plugins are available:
+## Live Demo
+Live Demo: https://your-vercel-link.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+* Search weather by city
+* Use current location (Geolocation API)
+* Toggle Celsius / Fahrenheit
+* 5-day forecast
+* Persistent user preferences (localStorage)
+* Graceful loading and error states
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Architecture
 
-## Expanding the ESLint configuration
+The application uses a custom React hook (`useWeather`) to encapsulate:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* API communication
+* side effects (`useEffect`)
+* persistence
+* geolocation
+
+UI components remain stateless and declarative.
+
+SearchBar / UnitToggle
+↓
+useWeather
+↓
+Weather API
+
+## Design Decisions
+
+* Fetching is handled in `useEffect` to keep the app declarative
+* State changes drive side effects instead of event handlers
+* Intent-based functions (`searchCity`, `useLocation`) are exposed instead of raw setters
+
+## Tech Stack
+
+* React (Vite)
+* OpenWeatherMap API
+* Browser Geolocation API
+* CSS (no UI framework)
+
+## Running Locally
+
+1. Clone the repo
+2. Create a `.env` file with:
+   VITE_OPENWEATHERMAP_KEY=your_key_here
+3. npm install
+4. npm run dev
