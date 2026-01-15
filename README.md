@@ -4,8 +4,8 @@ A React weather application that fetches current conditions and a 5-day forecast
 by city or location using OpenWeatherMap. Built with a custom `useWeather` hook to separate business
 logic from UI.
 
-## Live Demo
-Live Demo: https://your-vercel-link.vercel.app
+## 🎨 Live Demo
+[Try it Live on Vercel](https://weather-app-lemon-phi-37.vercel.app/)
 
 ## Features
 
