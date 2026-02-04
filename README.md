@@ -1,4 +1,4 @@
-## Weather App
+## Weather Dashboard
 
 A React weather application that fetches current conditions and a 5-day forecast
 by city or location using OpenWeatherMap. Built with a custom `useWeather` hook to separate business
